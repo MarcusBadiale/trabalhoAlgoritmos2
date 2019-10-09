@@ -1,14 +1,37 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import model.Categoria;
 
 /**
  *
- * @author 631820107
+ * @author assparremberger
  */
 public class CategoriaDAO {
+    
+    public static void inserir(Categoria categoria){
+        
+    }
+    
+    public static void editar(Categoria categoria){
+        
+    }
+    
+    public static void excluir(int idCategoria){
+        
+    }
+    
+    public static List<Categoria> getCategorias(){
+        List<Categoria> lista = new ArrayList<>();
+        
+        return lista;
+    }
+    
+    public static Categoria getCategoriaById( int idCategoria ){
+        return null;
+    }
     
 }
