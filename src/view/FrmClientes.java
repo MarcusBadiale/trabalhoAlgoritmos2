@@ -163,6 +163,11 @@ public class FrmClientes extends javax.swing.JInternalFrame {
 
         btnLimpar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -336,6 +341,10 @@ public class FrmClientes extends javax.swing.JInternalFrame {
         lblCNPJ.setVisible(true);
         txtCNPJ.setVisible(true);
     }//GEN-LAST:event_rbPJActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimparActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -24,7 +24,7 @@ public class ProdutoDAO {
         
     }
     
-    public static List<Produto> getClientesPF(){
+    public static List<Produto> getProdutos(){
         return null;
     }
 }
