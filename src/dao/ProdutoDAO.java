@@ -44,24 +44,24 @@ public class ProdutoDAO {
     public static List<Produto> getProdutos(){
     	List<Produto> lista = new ArrayList<>();
         String query = 
-            "SELECT c.id, c.nome, c.quantidade, c.preco, "
-                + " FROM produtos c "
-                + " INNER JOIN categoria d "
-                + " ON c.codCategoria = d.id ";
+            "SELECT p.id, p.nome, p.quantidade, p.preco, c.id, c.nome "
+                + " FROM produtos p "
+                + " INNER JOIN categoria c "
+                + " ON p.codCategoria = c.id ";
         
         ResultSet rs = Conexao.consultar( query );
         if( rs != null){
             try {
                 while ( rs.next()  ) {                    
                     Categoria cat = new Categoria();
-                    cat.setId( rs.getInt( 6 ) );
-                    cat.setNome( rs.getString( 7 ) );
+                    cat.setId( rs.getInt( 5 ) );
+                    cat.setNome( rs.getString( 6 ) );
                     
                     Produto produto = new Produto();
                     produto.setId( rs.getInt( 1 ) );
                     produto.setNome( rs.getString( 2 ) );
-                    produto.setPreco( rs.getDouble( 3 ) );
-                    produto.setQuantidade( rs.getInt( 4 ) );
+                    produto.setPreco( rs.getDouble( 4 ) );
+                    produto.setQuantidade( rs.getInt( 3 ) );
                     produto.setCategoria( cat );
                     lista.add( produto );
                 }

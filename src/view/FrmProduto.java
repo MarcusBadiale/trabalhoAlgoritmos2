@@ -5,7 +5,10 @@
  */
 package view;
 
+import dao.CategoriaDAO;
 import dao.ProdutoDAO;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import model.Categoria;
 import model.Produto;
@@ -21,6 +24,27 @@ public class FrmProduto extends javax.swing.JInternalFrame {
      */
     public FrmProduto() {
         initComponents();
+        carregarCategorias();
+    }
+    
+    private void carregarCategorias(){
+        List<Categoria> listaCategoria = CategoriaDAO.getCategorias();
+        
+//        JOptionPane.showMessageDialog(null, 
+//                "total de cidades: " + listaCidades.size());
+       
+        DefaultComboBoxModel model = 
+                new DefaultComboBoxModel();
+        Categoria fake = new Categoria();
+        fake.setId(0);
+        fake.setNome("Selecione...");
+        model.addElement(fake); 
+        
+        for (Categoria categoria : listaCategoria) {
+            model.addElement( categoria );
+        }
+        cmbCategoria.setModel( model );
+        
     }
 
     /**
@@ -44,6 +68,10 @@ public class FrmProduto extends javax.swing.JInternalFrame {
         cmbCategoria = new javax.swing.JComboBox<>();
         btnSalvar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
 
         lblCodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblCodigo.setText("Código: ");

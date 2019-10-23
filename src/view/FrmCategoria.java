@@ -37,6 +37,10 @@ public class FrmCategoria extends javax.swing.JInternalFrame {
         txtCategoria = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         lblCodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblCodigo.setText("Código: ");
 

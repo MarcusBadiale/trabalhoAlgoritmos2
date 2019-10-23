@@ -29,24 +29,20 @@ public class ListProdutos extends javax.swing.JInternalFrame {
     } 
     
         private void carregarTabela(){
-        List<?> lista = new ArrayList<>();
+        List<Produto> lista = ProdutoDAO.getProdutos();
         String[] colunas = {"Código" , "Nome", "Quantidade", 
             "Preço", "Categoria"};
-        
-        lista = ProdutoDAO.getProdutos();
         
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers( colunas );
         
-        for (Object produto : lista){
-            Produto pro = (Produto) produto;
-            Object[] linha = {};
+        for (Produto pro : lista){
             
-            pro.getId();
-            pro.getNome();
-            pro.getQuantidade();
-            pro.getPreco();
-            pro.getCategoria();
+            Object[] linha = { pro.getId(),
+            pro.getNome(),
+            pro.getQuantidade(),
+            pro.getPreco(),
+            pro.getCategoria().getNome()};
             
             model.addRow(linha);
         }        
@@ -66,6 +62,10 @@ public class ListProdutos extends javax.swing.JInternalFrame {
         btnExcluir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableProdutos = new javax.swing.JTable();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
 
         btnExcluir.setText("EXCLUIR");
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
