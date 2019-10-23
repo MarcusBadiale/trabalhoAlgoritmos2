@@ -5,9 +5,12 @@
  */
 package view;
 
+import dao.ClienteDAO;
 import dao.ProdutoDAO;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Produto;
 
@@ -112,7 +115,23 @@ public class ListProdutos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        
+    	
+    	int linha = tableProdutos.getSelectedRow();
+        if( linha < 0 ){
+            JOptionPane.showMessageDialog(this, 
+                    "Você deve selecionar um produto");
+        }else{
+            String nome = (String) tableProdutos.getValueAt(linha, 1);
+            int resposta = JOptionPane.showConfirmDialog(this,
+                    "Confirma que deseja excluir o produto " +nome+ "?", 
+                    "Excluir Produto",
+                    JOptionPane.YES_NO_OPTION);
+            if( resposta == JOptionPane.YES_OPTION){
+                int id = (int) tableProdutos.getValueAt(linha, 0);
+                ProdutoDAO.excluir( id );
+                carregarTabela();
+            }
+        }
 
     }//GEN-LAST:event_btnExcluirActionPerformed
 
